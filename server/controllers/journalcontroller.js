@@ -85,12 +85,6 @@ router.put("update/:entryId", validateJWT, async (req, res) => {
     entry: entry,
   };
 
-  const updatedJournal = {
-    title: title,
-    date: date,
-    entry: entry,
-  };
-
   try {
     const update = await JournalModel.update(updatedJournal, query);
     res.status(200).json(update);

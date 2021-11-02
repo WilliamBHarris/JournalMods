@@ -3,10 +3,12 @@ const app = Express();
 const dbConnection = require("./db");
 require('dotenv').config();
 
+
+
 const controllers = require("./controllers");
 
 app.use(Express.json());
-
+app.use(require('./middleware/headers'));
 app.use("/journal", controllers.journalController);
 app.use("/user", controllers.userController);
 app.use(require('./middleware/validate-jwt'));
